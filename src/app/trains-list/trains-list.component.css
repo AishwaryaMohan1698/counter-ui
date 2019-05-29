@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-header {
+    background-color: rgb(46, 41, 41);
+    color: rgb(223, 146, 146);
+    padding: 10px;
+}
+
+.trains-list-wrapper {
+    background-color: rgb(78, 75, 75);
+    color: rgb(228, 208, 208);
+    margin: 20px;
+    padding: 10px;
+}
+
+.trains-list-header-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(56, 54, 54);
+    color: rgb(243, 128, 128);
+    border: 2px solid black;
+}
+
+.trains-list-header-item {
+    min-width: 20%;
+    max-width: 50%;
+    padding: 10px;
+}
+
+.trains-list-items-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(136, 114, 114);
+    color: rgb(43, 23, 23);
+    border: 2px solid black;
+}
+
+.trains-list-item {
+    min-width: 20%;
+    max-width: 50%;
+    padding: 10px;
+}

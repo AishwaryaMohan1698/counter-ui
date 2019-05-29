@@ -1,0 +1,18 @@
+<div class="main-wrapper">
+    <div class="main-header">
+        <h1>Compartments Details Page for train - {{trainId}}</h1>
+    </div>
+    <div class="compartments-list-wrapper">
+        <div class="compartments-list-header-wrapper">
+            <div class="compartments-list-header-item">Compartment no.</div>
+            <div class="compartments-list-header-item">Type</div>
+            <div class="compartments-list-header-item">No. of Passengers</div>
+        </div>
+
+        <div class="compartments-list-items-wrapper" *ngFor="let compartment of compartmentDetails">
+            <div class="compartments-list-item">{{compartment.comId}}</div>
+            <div class="compartments-list-item">{{compartment.type}}</div>
+            <div class="compartments-list-item">{{compartment.count}}</div>
+        </div>
+    </div>
+</div>
