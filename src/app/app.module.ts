@@ -3,15 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TrainsListComponent } from './trains-list/trains-list.component';
 
 import { environment } from '../environments/environment';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { CompartmentsListComponent } from './compartments-list/compartments-list.component';
+import { CompartmentsListComponent } from './pages/compartments-list/compartments-list.component';
 import { Routes, RouterModule } from '@angular/router';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { TrainsListComponent } from './pages/trains-list/trains-list.component';
+import { CompartmentCountChartComponent } from './pages/compartment-count-chart/compartment-count-chart.component';
+import { CompartmentTypes } from './data-look-up/compartment-types';
+import { CompartmentsDataService } from './services/compartments-data.service';
+import { TrainsDataService } from './services/trains-data.service';
 
 const appRoutes: Routes = [
   { path: 'trains', component: TrainsListComponent },
@@ -24,7 +28,8 @@ const appRoutes: Routes = [
     AppComponent,
     TrainsListComponent,
     CompartmentsListComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CompartmentCountChartComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [CompartmentTypes, CompartmentsDataService, TrainsDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

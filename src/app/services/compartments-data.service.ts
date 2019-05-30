@@ -5,6 +5,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
   providedIn: 'root'
 })
 export class CompartmentsDataService {
+
   constructor(private db: AngularFireDatabase) { }
 
   ngOnInit() {
@@ -17,5 +18,6 @@ export class CompartmentsDataService {
   getCountDataOfKit(kitId: string) {
     return this.db.list('kits/' + kitId + '/cameras').valueChanges();
   }
+
 
 }
