@@ -17,6 +17,9 @@ import { CompartmentsDataService } from './services/compartments-data.service';
 import { TrainsDataService } from './services/trains-data.service';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { CompartmentCountChartComponent } from './components/compartment-count-chart/compartment-count-chart.component';
+import { HeaderComponent } from './components/header/header.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { SearchTrainComponent } from './components/search-train/search-train.component';
 
 const appRoutes: Routes = [
   { path: 'trains', component: TrainsListComponent },
@@ -31,11 +34,14 @@ const appRoutes: Routes = [
     CompartmentsListComponent,
     PageNotFoundComponent,
     CompartmentCountChartComponent,
-    HomepageComponent
+    HomepageComponent,
+    HeaderComponent,
+    SearchTrainComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AngularFontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     RouterModule.forRoot(

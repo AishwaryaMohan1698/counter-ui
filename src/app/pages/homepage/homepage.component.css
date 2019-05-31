@@ -1,43 +1,30 @@
 * {
-    /* border: 2px solid red; */
     margin: 0;
     box-sizing: border-box;
+    border: 0;
+    /* border: 2px solid red; */
 }
 
 .main-container {
-    /* background-image: url(../../assets/pictures/train-1.jpg); */
+    height: 100vh;
+    width: 100vw;
 }
 
-.main-view-wrapper {
-    min-width: 100%;
-    min-height: 100%;
-    position: relative;
-    text-align: center;
-}
-
-.main-text-wrapper {
-    max-width: 20%;
-    max-height: 500px;
-    position: absolute;
-    top: 15%;
-    left: 20%;
-    color: #66fcf1;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 70px;
-    font-weight: bold;
-    text-align: left;
+.image-wrapper {
+    width: 100vw;
+    height: 70vh;
 }
 
 .main-image {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    /* max-width: 100%;
+    max-height: 100%; */
 }
 
 .link-wrapper {
-    /* min-width: 200px;
-    min-height: 200px; */
     position: absolute;
-    top: 80%;
+    top: 50%;
     left: 30%;
     color: #1f2833;
     font-family: 'Courier New', Courier, monospace;
@@ -53,15 +40,9 @@
 }
 
 @keyframes link-box {
-    /* 0% {
-        left: 0px;
-    } */
     50% {
         left: 40%;
     }
-    /* 100% {
-        left: 0px;
-    } */
 }
 
 .link-arrow {
@@ -82,3 +63,84 @@
         opacity: 1;
     }
 }
+
+.cards-display {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-item {
+    width: 60vw;
+    height: 300px;
+    background-color: rgb(168, 228, 208);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.card-image-wrapper {
+    width: 50%;
+    height: 100%;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+}
+
+.card-text-wrapper {
+    width: 50%;
+    height: 100%;
+}
+
+.odd-card {
+    animation-name: card-to-right;
+    animation-duration: 3s;
+    left: 15%;
+}
+
+.even-card {
+    animation-name: card-to-left;
+    animation-duration: 3s;
+    right: -25%;
+}
+
+@keyframes card-to-right {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 15%;
+    }
+}
+
+@keyframes card-to-left {
+    0% {
+        right: -100%;
+    }
+    100% {
+        right: -25%;
+    }
+}
+
+
+/* .main-view-wrapper {
+    min-width: 100%;
+    max-height: 70%;
+    position: relative;
+    text-align: center;
+} */
+
+
+/* .main-text-wrapper {
+    max-width: 20%;
+    max-height: 500px;
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    color: #66fcf1;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 70px;
+    font-weight: bold;
+    text-align: left;
+} */
