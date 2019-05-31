@@ -12,15 +12,16 @@ import { CompartmentsListComponent } from './pages/compartments-list/compartment
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { TrainsListComponent } from './pages/trains-list/trains-list.component';
-import { CompartmentCountChartComponent } from './pages/compartment-count-chart/compartment-count-chart.component';
 import { CompartmentTypes } from './data-look-up/compartment-types';
 import { CompartmentsDataService } from './services/compartments-data.service';
 import { TrainsDataService } from './services/trains-data.service';
+import { HomepageComponent } from './pages/homepage/homepage.component';
+import { CompartmentCountChartComponent } from './components/compartment-count-chart/compartment-count-chart.component';
 
 const appRoutes: Routes = [
   { path: 'trains', component: TrainsListComponent },
   { path: 'compartments', component: CompartmentsListComponent },
-  { path: '', component: PageNotFoundComponent },
+  { path: '', component: HomepageComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 @NgModule({
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     TrainsListComponent,
     CompartmentsListComponent,
     PageNotFoundComponent,
-    CompartmentCountChartComponent
+    CompartmentCountChartComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,84 @@
+* {
+    /* border: 2px solid red; */
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main-container {
+    /* background-image: url(../../assets/pictures/train-1.jpg); */
+}
+
+.main-view-wrapper {
+    min-width: 100%;
+    min-height: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.main-text-wrapper {
+    max-width: 20%;
+    max-height: 500px;
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    color: #66fcf1;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 70px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.main-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.link-wrapper {
+    /* min-width: 200px;
+    min-height: 200px; */
+    position: absolute;
+    top: 80%;
+    left: 30%;
+    color: #1f2833;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: left;
+    background-color: #66fcf2a1;
+    border-radius: 20px;
+    padding: 20px;
+    animation-name: link-box;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes link-box {
+    /* 0% {
+        left: 0px;
+    } */
+    50% {
+        left: 40%;
+    }
+    /* 100% {
+        left: 0px;
+    } */
+}
+
+.link-arrow {
+    display: inline;
+    animation-name: link-arrow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes link-arrow {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
