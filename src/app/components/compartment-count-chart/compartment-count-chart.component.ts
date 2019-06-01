@@ -47,9 +47,10 @@ export class CompartmentCountChartComponent implements OnInit {
       // categoryAxis.renderer.labels.template.rotation = 270;
       // categoryAxis.renderer.inversed = true;
 
-      categoryAxis.stroke=am4core.color("#66fcf1");
-
       var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
+
+      categoryAxis.stroke = am4core.color("#66fcf1");
+      valueAxis.stroke = am4core.color("#66fcf1");
 
       // Create series
       var series = chart.series.push(new am4charts.ColumnSeries());
@@ -58,8 +59,12 @@ export class CompartmentCountChartComponent implements OnInit {
       series.name = "count";
       series.columns.template.tooltipText = "passenger count in {compartment} is {count}";
       series.columns.template.fillOpacity = 1;
-      series.columns.template.fill=am4core.color("#66fcf1");
+      series.columns.template.fill = am4core.color("#66fcf1");
 
+      let valueLabel = series.bullets.push(new am4charts.LabelBullet());
+      valueLabel.label.text = "hello";
+      valueLabel.label.fontSize = 20;
+      valueLabel.label.stroke = am4core.color("#66fcf1");
       // var columnTemplate = series.columns.template;
       this.chart = chart;
     });

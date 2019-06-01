@@ -21,12 +21,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { SearchTrainComponent } from './components/search-train/search-train.component';
 import { ReactiveFormsModule } from '@angular/forms';
-const appRoutes: Routes = [
-  { path: 'trains', component: TrainsListComponent },
-  { path: 'compartments', component: CompartmentsListComponent },
-  { path: '', component: HomepageComponent },
-  { path: '**', component: PageNotFoundComponent }
-];
+// const appRoutes: Routes = [
+//   { path: 'trains', component: TrainsListComponent },
+//   { path: 'compartments', component: CompartmentsListComponent },
+//   { path: '', component: HomepageComponent },
+//   { path: '**', component: PageNotFoundComponent }
+// ];
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,10 +45,10 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    )
+    // RouterModule.forRoot(
+    //   appRoutes,
+    //   { enableTracing: true } // <-- debugging purposes only
+    // )
   ],
   providers: [CompartmentTypes, CompartmentsDataService, TrainsDataService],
   bootstrap: [AppComponent]
