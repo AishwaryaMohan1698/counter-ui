@@ -44,6 +44,7 @@ export class CompartmentCountChartComponent implements OnInit {
       categoryAxis.dataFields.category = "compartment";
       categoryAxis.renderer.grid.template.location = 0;
       categoryAxis.renderer.minGridDistance = 30;
+      
       // categoryAxis.renderer.labels.template.rotation = 270;
       // categoryAxis.renderer.inversed = true;
 
@@ -64,7 +65,7 @@ export class CompartmentCountChartComponent implements OnInit {
       let valueLabel = series.bullets.push(new am4charts.LabelBullet());
       valueLabel.label.text = "hello";
       valueLabel.label.fontSize = 20;
-      valueLabel.label.stroke = am4core.color("#66fcf1");
+      // valueLabel.label. = am4core.color("#66fcf1");
       // var columnTemplate = series.columns.template;
       this.chart = chart;
     });

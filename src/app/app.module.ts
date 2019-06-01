@@ -9,7 +9,6 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { CompartmentsListComponent } from './pages/compartments-list/compartments-list.component';
-import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { TrainsListComponent } from './pages/trains-list/trains-list.component';
 import { CompartmentTypes } from './data-look-up/compartment-types';
