@@ -6,15 +6,17 @@
 }
 
 .main-wrapper {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #C5c6c7;
+    background-color: #0b0c10;
+    background-image: linear-gradient(to bottom, #0b0c10, #39434e);
 }
 
 .main-header {
     background-color: #0b0c10;
     color: #66fcf1;
-    padding: 10px;
+    padding: 20px;
 }
 
 .data-display-wrapper {
@@ -36,8 +38,8 @@
 .compartments-list-header-wrapper {
     display: flex;
     justify-content: space-evenly;
-    background-color: #1f2833;
-    color: #C5c6c7;
+    background-color: #0b0c10;
+    color: #66fcf1;
     border: 2px solid black;
 }
 

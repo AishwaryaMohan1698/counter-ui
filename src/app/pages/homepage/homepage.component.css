@@ -27,8 +27,9 @@ a {
 }
 
 .link-view-wrapper {
-    height: 100px;
-    width: 20%;
+    /* height: 100px;
+    width: 20%; */
+    max-height: 0;
 }
 
 .link-wrapper {
@@ -36,23 +37,24 @@ a {
     top: 50%;
     left: 10%;
     color: #1f2833;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 40px;
+    font-family: 'Times New Roman', Georgia, sans-serif;
+    font-size: 2.5em;
     font-weight: bold;
     text-align: left;
     background-color: #66fcf2a1;
     border-radius: 20px;
     padding: 20px;
-    animation-name: link-box;
+    /* animation-name: link-box;
     animation-duration: 4s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite; */
 }
 
-@keyframes link-box {
+
+/* @keyframes link-box {
     50% {
         left: 20%;
     }
-}
+} */
 
 .link-arrow {
     display: inline;
@@ -77,20 +79,26 @@ a {
     display: flex;
     flex-direction: column;
     /* margin: 100px; */
+    background-color: #1f2833;
+    background-image: linear-gradient(to bottom, #181818, #5a6b80);
 }
 
 .card-item {
-    width: 50vw;
+    width: 70vw;
     height: 300px;
-    background-color: rgb(168, 228, 208);
+    background-color: #0b0c10;
     display: flex;
     justify-content: space-between;
     margin: 50px auto;
+    padding: 1%;
+    /* box-shadow: 5px 10px #303b47; */
 }
 
 .card-image-wrapper {
-    width: 50%;
+    width: 40%;
     height: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .card-image {
@@ -98,17 +106,39 @@ a {
     height: 100%;
 }
 
+.card-icon {
+    font-size: 15em;
+    color: #66fcf2a1;
+}
+
 .card-text-wrapper {
-    width: 50%;
+    width: 60%;
     height: 100%;
+    font-family: 'Times New Roman', Georgia, Serif;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-text-wrapper>h1 {
+    color: #66fcf1;
+    padding: 2%;
+    margin: 2%;
+}
+
+.card-text-wrapper>p {
+    color: #66fcf1;
 }
 
 .odd-card {
-    /* left: 0%; */
+    text-align: left;
 }
 
 .even-card {
-    /* right: -25%; */
+    text-align: right;
+    flex-direction: row-reverse;
 }
 
 
