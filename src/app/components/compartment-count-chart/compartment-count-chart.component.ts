@@ -58,6 +58,11 @@ export class CompartmentCountChartComponent implements OnInit {
       valueAxis.title.fontWeight = "100";
       valueAxis.title.fillOpacity = 0;
       valueAxis.stroke = am4core.color("#66fcf1");
+      // valueAxis.strictMinMax=true;
+      valueAxis.min=0;
+      valueAxis.maxPrecision=0;
+      // valueAxis.extraMax =0.5;
+      // valueAxis.extraMin =0.5;
 
       // Create series
       var series = chart.series.push(new am4charts.ColumnSeries());
@@ -68,12 +73,16 @@ export class CompartmentCountChartComponent implements OnInit {
       series.columns.template.fillOpacity = 1;
       series.columns.template.fill = am4core.color("#C5c6c7");
       series.columns.template.stroke = am4core.color("#C5c6c7");
+      // categoryAxis.renderer.cellStartLocation = 0.2;
+      // categoryAxis.renderer.cellEndLocation = 0.8;
 
-      
+      // series.columns.template.width = am4core.percent(60);
+
       //value above bars
       let valueLabel = series.bullets.push(new am4charts.LabelBullet());
       valueLabel.label.text = "{count}";
       valueLabel.label.fontSize = 20;
+      // valueLabel.label.dy = 20;
       valueLabel.label.dx = 20;
       valueLabel.label.fill = am4core.color("#66fcf1");
       // var columnTemplate = series.columns.template;
