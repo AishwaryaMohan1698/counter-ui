@@ -51,6 +51,9 @@ export class CompartmentsListComponent implements OnInit {
             totalCount = totalCount + (+pasCount);
           })
           compartmentObject.count = totalCount;
+          if(totalCount<0){
+            compartmentObject.count=0;
+          }
 
           const indexOfExistingCompartment = this.passengerCountArray.findIndex((e) => e.compartment === compartmentObject.compartmentNo);
           if (indexOfExistingCompartment > -1) {

@@ -44,13 +44,19 @@ export class CompartmentCountChartComponent implements OnInit {
       categoryAxis.dataFields.category = "compartment";
       categoryAxis.renderer.grid.template.location = 0;
       categoryAxis.renderer.minGridDistance = 30;
-      
+
+      categoryAxis.stroke = am4core.color("#66fcf1");
+      categoryAxis.title.text = "Compartment Number";
+      categoryAxis.title.fontWeight = "bold";
+
       // categoryAxis.renderer.labels.template.rotation = 270;
       // categoryAxis.renderer.inversed = true;
 
       var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
 
-      categoryAxis.stroke = am4core.color("#66fcf1");
+      valueAxis.title.text = "Passenger Count";
+      valueAxis.title.fontWeight = "100";
+      valueAxis.title.fillOpacity = 0;
       valueAxis.stroke = am4core.color("#66fcf1");
 
       // Create series
@@ -58,14 +64,18 @@ export class CompartmentCountChartComponent implements OnInit {
       series.dataFields.valueX = "count";
       series.dataFields.categoryY = "compartment";
       series.name = "count";
-      series.columns.template.tooltipText = "passenger count in {compartment} is {count}";
+      series.columns.template.tooltipText = "Passenger count in {compartment} is {count}";
       series.columns.template.fillOpacity = 1;
-      series.columns.template.fill = am4core.color("#66fcf1");
+      series.columns.template.fill = am4core.color("#C5c6c7");
+      series.columns.template.stroke = am4core.color("#C5c6c7");
 
+      
+      //value above bars
       let valueLabel = series.bullets.push(new am4charts.LabelBullet());
-      valueLabel.label.text = "hello";
+      valueLabel.label.text = "{count}";
       valueLabel.label.fontSize = 20;
-      // valueLabel.label. = am4core.color("#66fcf1");
+      valueLabel.label.dx = 20;
+      valueLabel.label.fill = am4core.color("#66fcf1");
       // var columnTemplate = series.columns.template;
       this.chart = chart;
     });
