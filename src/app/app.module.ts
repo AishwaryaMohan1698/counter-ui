@@ -20,7 +20,7 @@ import { CompartmentCountChartComponent } from './components/compartment-count-c
 import { HeaderComponent } from './components/header/header.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { SearchTrainComponent } from './components/search-train/search-train.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 const appRoutes: Routes = [
   { path: 'trains', component: TrainsListComponent },
   { path: 'compartments', component: CompartmentsListComponent },
@@ -44,6 +44,7 @@ const appRoutes: Routes = [
     AngularFontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

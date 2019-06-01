@@ -1,20 +1,25 @@
 <div class="main-wrapper">
     <div class="main-header">
-        <h1>Trains Details Page</h1>
+        <!-- <div class="page-title">
+            <h1>Trains Details Page</h1>
+        </div> -->
+        <div class="search-component">
+            <app-search-train></app-search-train>
+        </div>
     </div>
-    <app-search-train></app-search-train>
+
 
     <div class="trains-list-wrapper">
         <div class="trains-list-header-wrapper">
             <div class="trains-list-header-item">Train no.</div>
-            <div class="trains-list-header-item">Route</div>
+            <!-- <div class="trains-list-header-item">Route</div> -->
             <div class="trains-list-header-item">No. of Compartments</div>
         </div>
 
         <div class="trains-list-items-wrapper" *ngFor="let train of trains" (click)=goToTrainPage(train.id)>
             <div class="trains-list-item">{{train.id}}</div>
-            <div class="trains-list-item">{{train.route.from}} to {{train.route.to}}</div>
-            <div class="trains-list-item">{{train.compartments.length}}</div>
+            <!-- <div class="trains-list-item">{{train.route.from}} to {{train.route.to}}</div> -->
+            <div class="trains-list-item">{{train.compartments.calculatedLength}}</div>
         </div>
     </div>
 </div>

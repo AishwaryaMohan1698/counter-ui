@@ -1,10 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { CompartmentsDataService } from '../../services/compartments-data.service';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, Observer, Subject } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 import { CompartmentChartDataItem } from 'src/app/models/compartment-chart-data-item';
 import { CompartmentTypes } from 'src/app/data-look-up/compartment-types';
+import { Compartment } from 'src/app/models/compartment';
 
 @Component({
   selector: 'app-compartments-list',
@@ -16,7 +16,7 @@ export class CompartmentsListComponent implements OnInit {
   constructor(private compartmentsDataService: CompartmentsDataService, private route: ActivatedRoute, private compartmentTypesData: CompartmentTypes) { }
 
   trainId: string;
-  compartmentDetails: any[];
+  compartmentDetails: Array<Compartment> = new Array<Compartment>();
   passengerCountArray: Array<CompartmentChartDataItem> = new Array<CompartmentChartDataItem>();
   public msgSubject = new Subject<Array<CompartmentChartDataItem>>();
 
@@ -24,32 +24,54 @@ export class CompartmentsListComponent implements OnInit {
     this.trainId = this.route.snapshot.paramMap.get('trainId');
 
     this.compartmentsDataService.getCompartmentDetailsOfTrain(this.trainId).subscribe(compartments => {
-      this.compartmentDetails = compartments;
+      compartments.forEach((compartment: any) => {
+        var compartmentObject = new Compartment();
 
+        if (compartment.comNo === undefined) {
+          console.log("not array");
 
-      this.compartmentDetails.forEach((compartment) => {
-        compartment.type=this.compartmentTypesData.compartmentTypesNamesForDisplay[compartment.type];
-        this.compartmentsDataService.getCountDataOfKit(compartment.kitId).subscribe(cameras => {
-          
+          compartmentObject.compartmentNo = compartment.compartmentNo;
+          compartmentObject.type = this.compartmentTypesData.compartmentTypesNamesForDisplay[compartment.type];
+          compartmentObject.deviceId = compartment.deviceId;
+
+        } else {
+          console.log("array");
+
+          compartmentObject.compartmentNo = compartment.comNo.compartmentNo;
+          compartmentObject.type = this.compartmentTypesData.compartmentTypesNamesForDisplay[compartment.comNo.type];
+          compartmentObject.deviceId = compartment.comNo.deviceId;
+        }
+
+        this.compartmentsDataService.getCountDataOfKit(compartmentObject.deviceId).subscribe(cameras => {
+
           var totalCount = 0;
-          compartment.count = totalCount;
-          
+          compartmentObject.count = totalCount;
+
           cameras.forEach((pasCount) => {
             totalCount = totalCount + (+pasCount);
           })
-          compartment.count = totalCount;
+          compartmentObject.count = totalCount;
 
-          const indexOfExistingCompartment=this.passengerCountArray.findIndex((e) => e.compartment === compartment.comId);
-          if(indexOfExistingCompartment>-1){
-            this.passengerCountArray[indexOfExistingCompartment].count=compartment.count;
-          }else{
-            this.passengerCountArray.push({ compartment: compartment.comId, count: compartment.count });
+          const indexOfExistingCompartment = this.passengerCountArray.findIndex((e) => e.compartment === compartmentObject.compartmentNo);
+          if (indexOfExistingCompartment > -1) {
+            this.passengerCountArray[indexOfExistingCompartment].count = compartmentObject.count;
+          } else {
+            this.passengerCountArray.push({ compartment: compartmentObject.compartmentNo, count: compartmentObject.count });
           }
-          
+
           this.msgSubject.next(this.passengerCountArray);
         })
 
+        // this.compartmentDetails.push(compartmentObject);
+
+        const indexOfExistingCompartmentInList = this.compartmentDetails.findIndex((e) => e.compartmentNo === compartmentObject.compartmentNo);
+        if (indexOfExistingCompartmentInList > -1) {
+          this.compartmentDetails[indexOfExistingCompartmentInList] = compartmentObject;
+        } else {
+          this.compartmentDetails.push(compartmentObject);
+        }
       });
+
     });
   }
 

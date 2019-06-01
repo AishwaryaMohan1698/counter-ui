@@ -1,32 +1,43 @@
 * {
     margin: 0;
     border: 0;
+    /* border: 2px solid red; */
     box-sizing: border-box;
 }
 
 .main-wrapper {
     display: flex;
     flex-direction: column;
+    background-color: #C5c6c7;
 }
 
 .main-header {
-    background-color: rgb(46, 41, 41);
-    color: rgb(223, 146, 146);
+    background-color: #0b0c10;
+    color: #66fcf1;
     padding: 10px;
 }
 
+.data-display-wrapper {
+    display: flex;
+}
+
 .compartments-list-wrapper {
-    background-color: rgb(78, 75, 75);
-    color: rgb(228, 208, 208);
+    /* background-color: #0b0c10; */
     margin: 20px;
     padding: 10px;
+    flex: 1;
+}
+
+.compartments-chart-wrapper {
+    /* flex-grow: 50%; */
+    flex: 1;
 }
 
 .compartments-list-header-wrapper {
     display: flex;
     justify-content: space-evenly;
-    background-color: rgb(56, 54, 54);
-    color: rgb(243, 128, 128);
+    background-color: #1f2833;
+    color: #C5c6c7;
     border: 2px solid black;
 }
 
@@ -39,8 +50,8 @@
 .compartments-list-items-wrapper {
     display: flex;
     justify-content: space-evenly;
-    background-color: rgb(136, 114, 114);
-    color: rgb(43, 23, 23);
+    background-color: #C5c6c7;
+    color: #1f2833;
     border: 2px solid black;
 }
 
@@ -48,4 +59,12 @@
     min-width: 20%;
     max-width: 50%;
     padding: 10px;
+}
+
+.no-data-display-wrapper {
+    background-color: #0b0c10;
+    color: #66fcf1;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
 }

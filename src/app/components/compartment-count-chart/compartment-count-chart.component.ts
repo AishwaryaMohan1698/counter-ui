@@ -50,7 +50,7 @@ export class CompartmentCountChartComponent implements OnInit {
       var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
 
       // Create series
-      var series = chart.series.push(new am4charts.ColumnSeries3D());
+      var series = chart.series.push(new am4charts.ColumnSeries());
       series.dataFields.valueX = "count";
       series.dataFields.categoryY = "compartment";
       series.name = "count";

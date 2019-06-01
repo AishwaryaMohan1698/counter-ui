@@ -1,10 +1,11 @@
 <div class="search-component-wrapper">
-    <div class="from-component-wrapper">
-        <label for="from-place">From: </label>
-        <input type="text" id="from-place">
+    <div class="train-id-input-wrapper">
+        <label for="train-id">Enter Train Number: </label>
+        <input type="text" id="train-id" [formControl]="trainId">
     </div>
-    <div class="to-component-wrapper">
-        <label for="to-place">To: </label>
-        <input type="text" id="to-place">
+    <div class="search-icon-wrapper" (click)="goToTrainPage()">
+        <i class="fa fa-search search-icon" aria-hidden="true"></i>
     </div>
 </div>
+
+<!-- testing{{trainId.value}} -->

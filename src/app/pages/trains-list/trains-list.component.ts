@@ -18,8 +18,17 @@ export class TrainsListComponent implements OnInit {
   ngOnInit() {
     this.trainsDataService.getTrains().subscribe(trains => {
       this.trains = trains;
+      this.trains.forEach(train => {
+        if(Array.isArray(train.compartments)){
+          train.compartments.calculatedLength=train.compartments.length;
+        }else{
+          train.compartments.calculatedLength=1;
+        }
+  
+      });
       // console.log(this.trains);
     });
+    
     this.isTrainChosen = false;
   }
 
